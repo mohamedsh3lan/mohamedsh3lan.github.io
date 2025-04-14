@@ -123,6 +123,26 @@
             transform: translateY(-5px);
         }
         
+		.project-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0; /* Fallback color */
+			position: relative;
+			margin-bottom: 1.5rem; 
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+			border: none
+        }
+        		
         .project-content {
             padding: 1.5rem;
         }
@@ -232,6 +252,11 @@
                             A lightweight shader editor with real-time GLSL preview similar to ShaderToy, 
                             built with QtWidgets and QOpenGL.
                         </p>
+						<div class="project-image-container">
+						<img src="https://raw.githubusercontent.com/sho3la/ShaderPlusPlus/master/screenshots/result.gif"
+							alt="ShaderPlusPlus live preview in action"
+							class="project-image">
+						</div>
                         <div class="project-tech">
                             <span class="tech-tag">C++</span>
                             <span class="tech-tag">Qt</span>
@@ -252,6 +277,11 @@
                             A rendering library with examples for starting 3D applications, including camera logic, 
                             lighting, shadow mapping, and environment shaders.
                         </p>
+						<div class="project-image-container">
+						<img src="https://raw.githubusercontent.com/sho3la/gfxtoolbox/master/screenshots/19_example.gif"
+							alt="ShaderPlusPlus live preview in action"
+							class="project-image">
+						</div>
                         <div class="project-tech">
                             <span class="tech-tag">C++</span>
                             <span class="tech-tag">OpenGL</span>
