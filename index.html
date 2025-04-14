@@ -104,6 +104,60 @@
             color: var(--secondary-color);
         }
         
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .project-description {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
         footer {
             background: var(--secondary-color);
             color: white;
@@ -119,6 +173,10 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -131,13 +189,100 @@
     </header>
     
     <section class="hero">
-        <a href="app.html" class="btn btn-wasm">Launch Mesh Editor </a>
+        <a href="app.html" class="btn btn-wasm">Launch Mesh Editor</a>
     </section>
     
     <section class="about">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <p>I'm a software developer specializing in high-performance 3D systems with 6+ years of experience developing CAD/CAM solutions and real-time rendering engines.</p>
+        </div>
+    </section>
+    
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Web-based Mesh Editor -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">Web-based Mesh Editor</h3>
+                        <p class="project-description">
+                            A web-based mesh editor for 3D printing featuring tools for mesh repair including hole filling, 
+                            remeshing, decimation, sculpting
+                            [in progress].
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">OpenGL</span>
+                            <span class="tech-tag">WebAssembly</span>
+                            <span class="tech-tag">Emscripten</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="app.html" class="btn">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ShaderPlusPlus -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">ShaderPlusPlus</h3>
+                        <p class="project-description">
+                            A lightweight shader editor with real-time GLSL preview similar to ShaderToy, 
+                            built with QtWidgets and QOpenGL.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">Qt</span>
+                            <span class="tech-tag">OpenGL</span>
+                            <span class="tech-tag">GLSL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sho3la/ShaderPlusPlus" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- gfxtoolbox -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">gfxtoolbox</h3>
+                        <p class="project-description">
+                            A rendering library with examples for starting 3D applications, including camera logic, 
+                            lighting, shadow mapping, and environment shaders.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">OpenGL</span>
+                            <span class="tech-tag">DirectX11</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/sho3la/gfxtoolbox" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BreakEngine -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3 class="project-title">BreakEngine</h3>
+                        <p class="project-description">
+                            A full-featured 2D game engine from scratch including rendering and physics modules, 
+                            built with OpenGL and DirectX11.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">OpenGL</span>
+                            <span class="tech-tag">DirectX11</span>
+                            <span class="tech-tag">Game Engine</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/BreakEngine/Break-0.1" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
         
