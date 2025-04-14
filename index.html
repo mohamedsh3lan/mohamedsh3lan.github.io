@@ -1,1 +1,155 @@
-<!doctypehtml><html lang=en-us><head><meta charset=utf-8><meta content="text/html; charset=utf-8"http-equiv=Content-Type><meta content="width=device-width,initial-scale=1"name=viewport><title>Interactive 3D Viewer</title><style>body{margin:0;padding:0;overflow:hidden;font-family:Arial,sans-serif;background:linear-gradient(135deg,#1e3c72 0,#2a5298 100%);color:#fff}.emscripten{padding-right:0;margin-left:auto;margin-right:auto;display:block}div.emscripten{text-align:center}canvas.emscripten{border:0 none;padding:0;background-color:#000;width:100vw;height:100vh;max-height:100vh;display:block;overflow:hidden}#status{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:24px;font-weight:700;color:#fff;text-shadow:2px 2px 4px rgba(0,0,0,.5)}#progress{position:absolute;top:60%;left:50%;transform:translate(-50%,-50%);width:200px;height:10px;border-radius:5px;background:rgba(255,255,255,.2);overflow:hidden}#progress::-webkit-progress-bar{background:rgba(255,255,255,.2);border-radius:5px}#progress::-webkit-progress-value{background:linear-gradient(135deg,#00c6ff 0,#0072ff 100%);border-radius:5px}#progress::-moz-progress-bar{background:linear-gradient(135deg,#00c6ff 0,#0072ff 100%);border-radius:5px}.loading-screen{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:1000}.loading-spinner{border:4px solid rgba(255,255,255,.3);border-top:4px solid #00c6ff;border-radius:50%;width:40px;height:40px;animation:spin 1s linear infinite}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style></head><body><div class=loading-screen id=loadingScreen><div class=loading-spinner></div><div id=status>Downloading...</div><progress id=progress max=100 value=0></progress></div><canvas class=emscripten id=canvas oncontextmenu=event.preventDefault()></canvas><script>var statusElement=document.getElementById("status"),progressElement=document.getElementById("progress"),loadingScreen=document.getElementById("loadingScreen"),urlParams=new URLSearchParams(window.location.search),frameElem=window.frameElement;function hasParam(e){return!(!urlParams||!urlParams.has(e))||!(!frameElem||!frameElem.hasAttribute("data-"+e))}function getParam(e){return urlParams&&urlParams.has(e)?urlParams.get(e):frameElem&&frameElem.hasAttribute("data-"+e)?frameElem.getAttribute("data-"+e):void 0}function getFile(e){var t=window.location!=window.parent.location?window.parent.location.href:window.location.href,a=new URL(e,t).pathname;return[a.split("/").pop(),a]}var argv=[],Module={preRun:[function(){if(hasParam("controls")&&argv.push("-g"),hasParam("model")){var[e,t]=getFile(getParam("model"));FS.createPreloadedFile("./",e,t,!0,!1),argv.push(e)}if(hasParam("material")){var[e,t]=getFile(getParam("material"));FS.createPreloadedFile("./",e,t,!0,!1),argv.push("-m"),argv.push(e)}if(hasParam("texture")){var[e,t]=getFile(getParam("texture"));FS.createPreloadedFile("./",e,t,!0,!1),argv.push("-t"),argv.push(e)}}],arguments:argv,postRun:[],print:function(e){console.log(e)},printErr:function(e){console.error(e)},canvas:function(){var e=document.getElementById("canvas");return e.addEventListener("webglcontextlost",(function(e){alert("WebGL context lost. You will need to reload the page."),e.preventDefault()}),!1),e}(),setStatus:function(e){if(Module.setStatus.last||(Module.setStatus.last={time:Date.now(),text:""}),e!==Module.setStatus.text){var t=e.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/),a=Date.now();t&&a-Date.now()<30||(t?(e=t[1],progressElement.value=100*parseInt(t[2]),progressElement.max=100*parseInt(t[4]),progressElement.hidden=!1):(progressElement.value=null,progressElement.max=null,progressElement.hidden=!0),statusElement.innerHTML=e)}},totalDependencies:0,monitorRunDependencies:function(e){this.totalDependencies=Math.max(this.totalDependencies,e),Module.setStatus(e?"Preparing... ("+(this.totalDependencies-e)+"/"+this.totalDependencies+")":"All downloads complete."),0===e&&(loadingScreen.style.display="none")}};Module.setStatus("Downloading..."),window.onerror=function(){Module.setStatus("Exception thrown, see JavaScript console"),Module.setStatus=function(e){e&&Module.printErr("[post-exception status] "+e)}}</script><script async src=1_simple_window.js></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Shaalan | Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .btn-wasm {
+            background: var(--accent-color);
+            font-weight: bold;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+        }
+        
+        .btn-wasm:hover {
+            background: #c0392b;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .about, .projects {
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Mohamed Shaalan</h1>
+            <p>Senior Software Engineer</p>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <a href="app.html" class="btn btn-wasm">Launch Mesh Editor </a>
+    </section>
+    
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p>I'm a software developer specializing in high-performance 3D systems with 6+ years of experience developing CAD/CAM solutions and real-time rendering engines.</p>
+        </div>
+    </section>
+        
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mohamed Shaalan. All rights reserved.</p>
+            <p>
+                <a href="mailto:mohamed_sh3lan61@yahoo.com" class="btn">Email Me</a>
+                <a href="https://github.com/sho3la" class="btn">GitHub</a>
+                <a href="https://linkedin.com/in/mohamed-shaalan-b8a8a4ab" class="btn">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
